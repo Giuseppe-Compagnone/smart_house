@@ -1,0 +1,35 @@
+@import "./variables.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font;
+    color: $text;
+    
+}
+
+body{
+    background: $body;
+    min-height: 400vh;
+}
+
+a{
+    text-decoration: none;
+    color: $text;
+}
+
+a:hover{
+    color: $light;
+}
+
+.gradient-text{
+    background: linear-gradient(40deg, white 10%, $light 100%);;
+    background-clip: text;
+    -webkit-background-clop: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.margin{
+    margin:0 4rem;
+}

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,KAAK,CAAA;EACD,UAAU,EAAE,KAAK;EACjB,UAAU,EAAE,IAAI;CAEnB",
+    "sources": [
+        "Rooms.scss",
+        "../../variables.scss"
+    ],
+    "names": [],
+    "file": "Rooms.css"
+}

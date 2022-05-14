@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+body {
+  background: #2d2d30;
+  min-height: 400vh;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: #007acc;
+}
+
+.gradient-text {
+  background: linear-gradient(40deg, white 10%, #007acc 100%);
+  background-clip: text;
+  -webkit-background-clop: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.margin {
+  margin: 0 4rem;
+}
+/*# sourceMappingURL=common.css.map */
