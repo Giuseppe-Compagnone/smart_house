@@ -27,6 +27,10 @@ nav #menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 nav #menu ul {
@@ -37,12 +41,23 @@ nav #menu ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: unset;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 nav #menu ul li {
   margin: 0 1.5rem;
   font-size: 1.2rem;
+}
+
+nav #menu ul li #close {
+  visibility: hidden;
+  width: 0;
+}
+
+nav #menu ul #icon {
+  margin: 0;
 }
 
 nav #menu span {
@@ -63,7 +78,7 @@ nav #menu span {
     color: #007acc;
   }
   nav #menu {
-    width: 10%;
+    width: 1px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -73,8 +88,10 @@ nav #menu span {
             align-items: center;
   }
   nav #menu .hidden {
+    width: 0;
     right: -20rem;
-    visibility: hidden;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
   nav #menu ul {
     position: absolute;
@@ -91,14 +108,25 @@ nav #menu span {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     -webkit-box-shadow: 100vh 100vw 100rem 100rem rgba(45, 45, 45, 0.6);
             box-shadow: 100vh 100vw 100rem 100rem rgba(45, 45, 45, 0.6);
+    -webkit-transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  nav #menu ul #icon {
+    margin: 2rem 0 0 .4rem;
   }
   nav #menu ul li {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+    padding: 0 1rem;
   }
   nav #menu ul li #close {
+    visibility: visible;
     font-size: 1.7rem;
+    width: 2rem;
   }
   nav #menu ul span {
     visibility: visible;
@@ -106,7 +134,7 @@ nav #menu span {
     height: .2rem;
     background: white;
     border-radius: .2rem;
-    margin-top: .5rem;
+    margin-top: .3rem;
     margin-left: 1.2rem;
   }
   nav #menu span {

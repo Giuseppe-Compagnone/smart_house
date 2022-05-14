@@ -21,17 +21,27 @@ nav{
 
     #menu{
         display: flex;
+        flex-direction: column;
 
         ul{
             display: flex;
             list-style-type: none;
             align-items: center;
-            padding: unset;
+            justify-content: space-between;
             
             li{
                 margin: 0 1.5rem;
                 font-size: 1.2rem;
 
+                                
+                #close{
+                    visibility:hidden;
+                    width:0;
+                }
+            }
+
+            #icon{
+                margin:0;
             }
         }
 
@@ -56,14 +66,19 @@ nav{
         }
 
         #menu{ 
-            width:10%;
+            width:1px;
             flex-direction: row;
             align-items: center;
 
             .hidden{
-                right: -20rem;
-                visibility:hidden;
+                width:0;
+                right: -20rem;   
+                box-shadow: none;
+                            
             }
+
+            
+
 
             ul{
                 position:absolute;
@@ -75,14 +90,24 @@ nav{
                 flex-direction: column;
                 padding: 0 2rem;
                 align-items: flex-start;
+                justify-content: flex-start;
                 box-shadow: 100vh 100vw 100rem 100rem rgba(45,45,45,0.6);
+                transition:all 1s cubic-bezier(.215,.61,.355,1);
+
+                #icon{
+                    margin:2rem 0 0 .4rem;
+                }
                 
                 li{
-                    margin-top: 2rem;
+                    margin-top: 1.5rem;
+                    padding:0 1rem;
 
                     #close{
+                        visibility: visible;
                         font-size: 1.7rem;
+                        width:2rem;
                     }
+
                 }
 
                 span{
@@ -91,7 +116,7 @@ nav{
                     height: .2rem;
                     background: white;
                     border-radius: .2rem;
-                    margin-top: .5rem;
+                    margin-top: .3rem;
                     margin-left: 1.2rem;
                 }
             }
