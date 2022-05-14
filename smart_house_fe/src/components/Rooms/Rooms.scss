@@ -1,7 +1,64 @@
 @import "./../../variables.scss";
 
-#test{
-    background: white;
-    margin-top: 8rem;
-    
+#garage{
+    grid-area: garage;
+    background: green;
+}
+
+#bedroom{
+    grid-area: bedroom;
+    background: red;
+}
+
+#living{
+    grid-area: living;
+    background: yellow;
+}
+
+#bathroom{
+    grid-area: bathroom;
+    background: pink;
+}
+
+#garden{
+    grid-area: garden;
+    background: fuchsia;
+}
+
+main{
+    margin-top:10rem;
+    display: flex;
+    justify-content: center;
+
+    .room{        
+        border: .3rem solid $house;
+        border-radius: $radius;
+    }
+
+    #house{
+        width: $wall;
+        height: $wall;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        
+
+        #rooms{    
+
+            display: grid;
+            grid-template-areas:
+                "garage bedroom living" 
+                "garden bathroom living" 
+                "garden garden garden";
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto auto auto ;
+            column-gap: $cm;
+            row-gap: $cm;        
+            width: calc( #{$wall} - ( #{$cm} * 2 ));
+            height: calc( #{$wall} - ( #{$cm} * 2 ));
+            border: 1px solid red;
+
+        }
+    }
 }

@@ -7,6 +7,10 @@
   color: white;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #2d2d30;
   min-height: 400vh;

@@ -5,8 +5,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: $font;
-    color: $text;
-    
+    color: $text;    
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body{
