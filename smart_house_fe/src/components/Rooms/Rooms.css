@@ -35,12 +35,20 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-main .room {
+main #house-link {
+  margin-bottom: 3rem;
+}
+
+main .room-style {
   border: 0.3rem solid #252526;
   border-radius: 0.8rem;
 }
@@ -74,7 +82,7 @@ main #house #rooms {
   height: calc( calc( 2.36221rem * 12.5) - ( 2.36221rem * 2 ));
 }
 
-main #house #rooms div {
+main #house #rooms .room {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,8 +97,13 @@ main #house #rooms div {
   transition: all .2s ease-in;
 }
 
-main #house #rooms div:hover {
+main #house #rooms .room:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+main #house #rooms .active {
+  border-color: white;
+  background: #007acc;
 }
 /*# sourceMappingURL=Rooms.css.map */

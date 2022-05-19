@@ -22,9 +22,9 @@ const Navbar = () => {
             <div id="menu">
                 <ul id="list" className="hidden">
                     <li id="icon"><i className="fa-solid fa-xmark" id="close" onClick={()=>handleClose()}></i></li>
-                    <li><a href="#houseLink">ROOMS</a></li>
+                    <li><a href="#house-link">ROOMS</a></li>
                     <span></span>
-                    <li><a href="#">INFO</a></li>
+                    <li><a href="#info-link">INFO</a></li>
                     <span></span>
                     <li><a href="#">ALARM</a></li>
                     <span></span>
