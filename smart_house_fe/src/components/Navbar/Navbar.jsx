@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Navbar.css";
 
 const handleClick = () => {
@@ -18,7 +19,7 @@ const Navbar = () => {
     return(
         <nav>
             <h1 id="title" className="gradient-text">Smart House</h1>
-            <i className="fa-solid fa-bars" onClick={()=>handleClick()}></i>
+            <FontAwesomeIcon icon="fa-solid fa-bars" onClick={()=>handleClick()}/>
             <div id="menu">
                 <ul id="list" className="hidden">
                     <li id="icon"><i className="fa-solid fa-xmark" id="close" onClick={()=>handleClose()}></i></li>

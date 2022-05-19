@@ -36,3 +36,8 @@ a:hover{
 .margin{
     margin:0 4rem;
 }
+
+.room-style{        
+    border: .3rem solid $house;
+    border-radius: $radius;
+}

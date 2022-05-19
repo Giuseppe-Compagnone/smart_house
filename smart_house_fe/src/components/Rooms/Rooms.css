@@ -45,12 +45,7 @@ main {
 }
 
 main #house-link {
-  margin-bottom: 3rem;
-}
-
-main .room-style {
-  border: 0.3rem solid #252526;
-  border-radius: 0.8rem;
+  margin-bottom: 6rem;
 }
 
 main #house {

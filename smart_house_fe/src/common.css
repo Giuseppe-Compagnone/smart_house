@@ -35,4 +35,9 @@ a:hover {
 .margin {
   margin: 0 4rem;
 }
+
+.room-style {
+  border: 0.3rem solid #252526;
+  border-radius: 0.8rem;
+}
 /*# sourceMappingURL=common.css.map */
