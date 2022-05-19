@@ -13,6 +13,7 @@ const Rooms = () =>{
                     <div id="rooms">
                         <div id="garage" className="room-style room" onClick={(e)=>{e.target.classList.toggle("active")}}>Garage</div>
                         <div id="bedroom" className="room-style room" onClick={(e)=>{e.target.classList.toggle("active")}}>Bedroom</div>
+                        <div id="kitchen" className="room-style room" onClick={(e)=>{e.target.classList.toggle("active")}}>Kitchen</div>
                         <div id="living" className="room-style room" onClick={(e)=>{e.target.classList.toggle("active")}}>Living</div>
                         <div id="bathroom" className="room-style room" onClick={(e)=>{e.target.classList.toggle("active")}}>Bathroom</div>
                         <div id="garden" className="room-style room" onClick={(e)=>{e.target.classList.toggle("active")}}>Garden</div>

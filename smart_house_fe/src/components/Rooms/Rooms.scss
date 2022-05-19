@@ -20,6 +20,10 @@
     grid-area: garden;
 }
 
+#kitchen{
+    grid-area: kitchen;
+}
+
 main{
     margin-top:10rem;
     display: flex;
@@ -42,7 +46,7 @@ main{
         #rooms{    
             display: grid;
             grid-template-areas:
-                "garage bedroom living" 
+                "garage bedroom kitchen" 
                 ". bathroom living" 
                 "garden garden garden";
             grid-template-columns: auto auto auto;

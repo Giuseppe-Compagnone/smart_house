@@ -11,8 +11,7 @@
 }
 
 #living {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
+  -ms-grid-row: 2;
   -ms-grid-column: 3;
   grid-area: living;
 }
@@ -28,6 +27,12 @@
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: garden;
+}
+
+#kitchen {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: kitchen;
 }
 
 main {
@@ -65,7 +70,7 @@ main #house {
 main #house #rooms {
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "garage bedroom living"  ". bathroom living"  "garden garden garden";
+      grid-template-areas: "garage bedroom kitchen"  ". bathroom living"  "garden garden garden";
   -ms-grid-columns: auto auto auto;
       grid-template-columns: auto auto auto;
   -ms-grid-rows: auto auto auto;
