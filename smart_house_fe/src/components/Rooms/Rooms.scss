@@ -2,27 +2,22 @@
 
 #garage{
     grid-area: garage;
-    background: green;
 }
 
 #bedroom{
     grid-area: bedroom;
-    background: red;
 }
 
 #living{
     grid-area: living;
-    background: yellow;
 }
 
 #bathroom{
     grid-area: bathroom;
-    background: pink;
 }
 
 #garden{
     grid-area: garden;
-    background: fuchsia;
 }
 
 main{
@@ -45,20 +40,28 @@ main{
         
 
         #rooms{    
-
             display: grid;
             grid-template-areas:
                 "garage bedroom living" 
-                "garden bathroom living" 
+                ". bathroom living" 
                 "garden garden garden";
             grid-template-columns: auto auto auto;
             grid-template-rows: auto auto auto ;
-            column-gap: $cm;
-            row-gap: $cm;        
+            column-gap: $cm / 2;
+            row-gap: $cm / 2;        
             width: calc( #{$wall} - ( #{$cm} * 2 ));
             height: calc( #{$wall} - ( #{$cm} * 2 ));
-            border: 1px solid red;
 
+            div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                transition: all .2s ease-in;
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
         }
     }
 }
