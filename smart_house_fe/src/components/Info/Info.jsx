@@ -1,10 +1,11 @@
 import "./Info.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLock, faLockOpen } from "@fortawesome/free-solid-svg-icons";
 
 const Info = () => {
 
-    const close = <FontAwesomeIcon icon="fa-solid fa-lock" />;
-    const open = <FontAwesomeIcon icon="fa-solid fa-lock-open" />
+    const close = <FontAwesomeIcon icon={faLock} />;
+    const open = <FontAwesomeIcon icon={faLockOpen} />
 
     return(
         <>

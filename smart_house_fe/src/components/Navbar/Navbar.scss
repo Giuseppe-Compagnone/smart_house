@@ -15,7 +15,7 @@ nav{
         font-weight: 600;
     }
 
-    i{
+    #hamburger{
         visibility: hidden;
     }
 
@@ -58,12 +58,12 @@ nav{
 
         padding: 2rem 2rem;
     
-        i{
+        #hamburger,#close{
             visibility: visible;
             font-size: 1.5rem;
             cursor: pointer;
             &:hover{
-                color: $light;
+                color: $light !important;
             }
         }
 

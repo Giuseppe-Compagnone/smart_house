@@ -1,3 +1,4 @@
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Navbar.css";
 
@@ -19,10 +20,10 @@ const Navbar = () => {
     return(
         <nav>
             <h1 id="title" className="gradient-text">Smart House</h1>
-            <FontAwesomeIcon icon="fa-solid fa-bars" onClick={()=>handleClick()}/>
+            <FontAwesomeIcon id="hamburger" icon={faBars} onClick={()=>handleClick()}/>
             <div id="menu">
                 <ul id="list" className="hidden">
-                    <li id="icon"><i className="fa-solid fa-xmark" id="close" onClick={()=>handleClose()}></i></li>
+                    <li id="icon"><FontAwesomeIcon icon={faXmark} id="close" onClick={()=>handleClose()} /></li>
                     <li><a href="#house-link">ROOMS</a></li>
                     <span></span>
                     <li><a href="#info-link">INFO</a></li>

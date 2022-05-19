@@ -19,7 +19,7 @@ nav h1 {
   font-weight: 600;
 }
 
-nav i {
+nav #hamburger {
   visibility: hidden;
 }
 
@@ -72,13 +72,13 @@ nav #menu span {
   nav {
     padding: 2rem 2rem;
   }
-  nav i {
+  nav #hamburger, nav #close {
     visibility: visible;
     font-size: 1.5rem;
     cursor: pointer;
   }
-  nav i:hover {
-    color: #007acc;
+  nav #hamburger:hover, nav #close:hover {
+    color: #007acc !important;
   }
   nav #menu {
     width: 1px;
