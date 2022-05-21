@@ -17,10 +17,6 @@ section{
         grid-area: hum;
     }
 
-    #alarm{
-        grid-area: alarm;
-    }
-
     ul{
         list-style-type: none;
         display: grid;
@@ -28,7 +24,7 @@ section{
         grid-template-rows: auto auto;
         grid-template-areas:
             "temp hum"
-            "alarm alarm";
+            ". .";
         height: calc( #{$cm } * 5 );
         width: calc( ( #{$cell} * 2 ) + #{$cm} );
         row-gap: $cm;

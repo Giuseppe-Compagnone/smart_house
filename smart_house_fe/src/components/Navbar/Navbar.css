@@ -11,6 +11,7 @@ nav {
   position: fixed;
   width: 100vw;
   top: 0;
+  z-index: 1000;
 }
 
 nav h1 {
@@ -72,13 +73,13 @@ nav #menu span {
   nav {
     padding: 2rem 2rem;
   }
-  nav #hamburger, nav #close {
+  nav #hamburger {
     visibility: visible;
     font-size: 1.5rem;
     cursor: pointer;
   }
-  nav #hamburger:hover, nav #close:hover {
-    color: #007acc !important;
+  nav #hamburger:hover {
+    color: #007acc;
   }
   nav #menu {
     width: 1px;
@@ -122,6 +123,9 @@ nav #menu span {
   nav #menu ul #icon {
     margin: 2rem 0 0 .4rem;
   }
+  nav #menu ul #icon:hover {
+    color: #007acc;
+  }
   nav #menu ul li {
     margin-top: 1.5rem;
     padding: 0 1rem;
@@ -130,6 +134,10 @@ nav #menu span {
     visibility: visible;
     font-size: 1.7rem;
     width: 2rem;
+    cursor: pointer;
+  }
+  nav #menu ul li #close:hover {
+    color: #007acc;
   }
   nav #menu ul span {
     visibility: visible;

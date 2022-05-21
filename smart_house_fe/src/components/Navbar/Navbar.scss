@@ -8,6 +8,7 @@ nav{
     position: fixed;
     width:100vw;
     top:0;
+    z-index: 1000;
 
     h1{
         margin-right: auto;
@@ -58,12 +59,12 @@ nav{
 
         padding: 2rem 2rem;
     
-        #hamburger,#close{
+        #hamburger{
             visibility: visible;
             font-size: 1.5rem;
             cursor: pointer;
             &:hover{
-                color: $light !important;
+                color: $light;
             }
         }
 
@@ -98,6 +99,9 @@ nav{
 
                 #icon{
                     margin:2rem 0 0 .4rem;
+                    &:hover{
+                        color: $light;
+                    }
                 }
                 
                 li{
@@ -108,8 +112,11 @@ nav{
                         visibility: visible;
                         font-size: 1.7rem;
                         width:2rem;
+                        cursor: pointer;
+                        &:hover{
+                            color: $light;
+                        }
                     }
-
                 }
 
                 span{
