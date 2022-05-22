@@ -1,5 +1,57 @@
+@import "./../../variables.scss";
+
 .alarm{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    h1{
+        margin-bottom: 5rem;
+    }
+    
+    .alarm-options{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 30%;
+
+        margin-bottom: 10rem;
+
+        .toggler{
+            background: $house;
+            width: calc( #{$cm} * 2 );
+            height: $cm;
+            cursor: pointer;
+            border-radius: $radius;
+            position: relative;
+            transition: all .7s ease-in;
+    
+        
+            
+    
+            .trigger{
+                background: $text;
+                position:absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: unset;
+                width: $cm;
+                border-radius: $radius;
+                transform: scale(0.7);
+                transition: all .7s ease-in;
+            }        
+        }
+    
+        .toggler.active .trigger{
+            left: unset;
+            right: 0;   
+            transition: all .7s ease-in;
+         
+        }
+    }
+
 }
+
+
+

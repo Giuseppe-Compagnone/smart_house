@@ -7,13 +7,26 @@ const Alarm = () => {
     const close = <FontAwesomeIcon icon={faLock} />;
     const open = <FontAwesomeIcon icon={faLockOpen} />
 
+    // let lock = document.querySelector(".toggler");
+
+    // console.log(lock);
+
+    // const condition = lock.classList.contains("active"); 
+
+
+    const handleToggle = (e) =>{
+        e.target.classList.toggle("active");
+    }
+
     return(
         <>
             <section className="alarm">
                 <h1>Alarm</h1>
                 <div className="alarm-options">
-                    <p>alarm {1==1?open:close}</p>
-                    
+                    <p>alarm {}</p>
+                    <div id="hold" className="toggler" onClick={(e)=>{handleToggle(e)}}>
+                        <i className="trigger" ></i>
+                    </div>                    
                 </div>
             </section>
         </>

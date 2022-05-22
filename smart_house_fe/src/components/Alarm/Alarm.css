@@ -9,4 +9,55 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+.alarm h1 {
+  margin-bottom: 5rem;
+}
+
+.alarm .alarm-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30%;
+  margin-bottom: 10rem;
+}
+
+.alarm .alarm-options .toggler {
+  background: #252526;
+  width: calc( 2.36221rem * 2);
+  height: 2.36221rem;
+  cursor: pointer;
+  border-radius: 0.8rem;
+  position: relative;
+  -webkit-transition: all .7s ease-in;
+  transition: all .7s ease-in;
+}
+
+.alarm .alarm-options .toggler .trigger {
+  background: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: unset;
+  width: 2.36221rem;
+  border-radius: 0.8rem;
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+  -webkit-transition: all .7s ease-in;
+  transition: all .7s ease-in;
+}
+
+.alarm .alarm-options .toggler.active .trigger {
+  left: unset;
+  right: 0;
+  -webkit-transition: all .7s ease-in;
+  transition: all .7s ease-in;
+}
 /*# sourceMappingURL=Alarm.css.map */
