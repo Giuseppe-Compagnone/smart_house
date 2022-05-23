@@ -18,14 +18,32 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: calc( 2.36221rem * 5);
+  width: calc( ( calc( 2.36221rem * 6) * 2 ) + 2.36221rem);
+  row-gap: 2.36221rem;
+  -webkit-column-gap: 2.36221rem;
+          column-gap: 2.36221rem;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 30%;
   margin-bottom: 10rem;
+}
+
+.alarm .alarm-options #alarm-container {
+  width: calc( 2.36221rem * 6);
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .alarm .alarm-options .toggler {
@@ -35,6 +53,7 @@
   cursor: pointer;
   border-radius: 0.8rem;
   position: relative;
+  margin-right: 3rem;
   -webkit-transition: all .7s ease-in;
   transition: all .7s ease-in;
 }

@@ -11,11 +11,21 @@
     
     .alarm-options{
         display: flex;
+        height: calc( #{$cm } * 5 );
+        width: calc( ( #{$cell} * 2 ) + #{$cm} );
+        row-gap: $cm;
+        column-gap: $cm;
         justify-content: space-between;
         align-items: center;
-        width: 30%;
-
         margin-bottom: 10rem;
+
+        #alarm-container{
+            width:$cell;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
         .toggler{
             background: $house;
@@ -24,6 +34,7 @@
             cursor: pointer;
             border-radius: $radius;
             position: relative;
+            margin-right: 3rem;
             transition: all .7s ease-in;
     
         

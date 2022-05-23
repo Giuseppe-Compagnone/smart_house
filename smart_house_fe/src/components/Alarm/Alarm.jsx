@@ -23,7 +23,7 @@ const Alarm = () => {
             <section className="alarm">
                 <h1>Alarm</h1>
                 <div className="alarm-options">
-                    <p>alarm {}</p>
+                    <div id="alarm-container" className="room-style"><p>alarm {}</p></div>
                     <div id="hold" className="toggler" onClick={(e)=>{handleToggle(e)}}>
                         <i className="trigger" ></i>
                     </div>                    
