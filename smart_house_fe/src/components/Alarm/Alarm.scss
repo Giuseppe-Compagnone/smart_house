@@ -25,6 +25,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            .lock{
+                min-width: 1rem;
+                max-width: 1rem;
+            }
         }
 
         .toggler{
@@ -50,14 +55,14 @@
                 width: $cm;
                 border-radius: $radius;
                 transform: scale(0.7);
-                transition: all .7s ease-in;
+                transition: all .2s ease-in;
+                pointer-events: none;
             }        
         }
     
         .toggler.active .trigger{
-            left: unset;
-            right: 0;   
-            transition: all .7s ease-in;
+            left: $cm;   
+            transition: all .2s ease-in;
          
         }
     }

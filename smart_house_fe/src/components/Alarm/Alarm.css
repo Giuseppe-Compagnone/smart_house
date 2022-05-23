@@ -46,6 +46,11 @@
           align-items: center;
 }
 
+.alarm .alarm-options #alarm-container .lock {
+  min-width: 1rem;
+  max-width: 1rem;
+}
+
 .alarm .alarm-options .toggler {
   background: #252526;
   width: calc( 2.36221rem * 2);
@@ -69,14 +74,14 @@
   border-radius: 0.8rem;
   -webkit-transform: scale(0.7);
           transform: scale(0.7);
-  -webkit-transition: all .7s ease-in;
-  transition: all .7s ease-in;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+  pointer-events: none;
 }
 
 .alarm .alarm-options .toggler.active .trigger {
-  left: unset;
-  right: 0;
-  -webkit-transition: all .7s ease-in;
-  transition: all .7s ease-in;
+  left: 2.36221rem;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
 }
 /*# sourceMappingURL=Alarm.css.map */
