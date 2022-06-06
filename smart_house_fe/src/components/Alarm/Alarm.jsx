@@ -8,21 +8,30 @@ const Alarm = () => {
   const open = <FontAwesomeIcon icon={faLockOpen} className="lock" />;
   const [condition, setCondition] = useState(false);
   let lock = useRef();
+  let back = useRef();
 
-
+  // setInterval(() => {
+  //   if (condition) {
+  //     if(!back.current.classList.contains("activated"))
+  //     back.current.classList.add("activated");
+  //   } else {
+  //     if (back.current.classList.contains("activated")) {
+  //       back.current.classList.remove("activated");
+  //     }
+  //   }
+  // });
 
   const handleToggle = (e) => {
     e.target.classList.toggle("active");
     setCondition(lock.current.classList.contains("active"));
-
   };
 
   return (
     <>
-      <section className="alarm">
+      <section className="alarm" id="alarm-link">
         <h1>Alarm</h1>
         <div className="alarm-options">
-          <div id="alarm-container" className="room-style">
+          <div id="alarm-container" ref={back} className="room-style">
             <p>alarm {condition ? close : open}</p>
           </div>
           <div

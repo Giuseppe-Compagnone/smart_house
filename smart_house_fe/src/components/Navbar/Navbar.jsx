@@ -28,7 +28,7 @@ const Navbar = () => {
                     <span></span>
                     <li><a href="#info-link">INFO</a></li>
                     <span></span>
-                    <li><a href="#">ALARM</a></li>
+                    <li><a href="#alarm-link">ALARM</a></li>
                     <span></span>
                 </ul>
                 <span></span>

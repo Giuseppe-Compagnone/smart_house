@@ -12,6 +12,7 @@ nav {
   width: 100vw;
   top: 0;
   z-index: 1000;
+  line-height: unset;
 }
 
 nav h1 {

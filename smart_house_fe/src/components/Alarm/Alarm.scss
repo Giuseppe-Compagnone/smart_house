@@ -25,11 +25,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: all .1s ease-in;
 
             .lock{
                 min-width: 1rem;
                 max-width: 1rem;
             }
+        }
+
+        .activated{
+            background: $light;
+            border-color: $text;
         }
 
         .toggler{

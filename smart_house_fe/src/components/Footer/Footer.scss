@@ -1,0 +1,47 @@
+@import "./../../variables.scss";
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: $footer;
+    padding-top: 2rem;
+    
+    #footer-content{
+        width: 100%;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        padding: 0 9rem;
+        margin-bottom: .5rem;
+
+        li{
+            padding: 0 2rem;
+            width: 50%;
+            border-left:.15rem solid $light ;
+            line-height: 1.5rem;
+            p{
+                line-height: 1.5rem;
+            }
+
+            h2{
+                margin-bottom: 1rem;
+            }
+        }
+
+        #technologies{
+            list-style-type: none;
+
+            li{
+                padding: unset;
+                width: unset;
+                border-left: unset ;
+                
+            }
+        }
+    }
+
+    #copyright{
+        margin: 1rem 0;
+    }
+}

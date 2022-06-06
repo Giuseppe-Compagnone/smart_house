@@ -44,11 +44,18 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: all .1s ease-in;
+  transition: all .1s ease-in;
 }
 
 .alarm .alarm-options #alarm-container .lock {
   min-width: 1rem;
   max-width: 1rem;
+}
+
+.alarm .alarm-options .activated {
+  background: #007acc;
+  border-color: white;
 }
 
 .alarm .alarm-options .toggler {
