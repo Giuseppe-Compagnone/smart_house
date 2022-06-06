@@ -1,9 +1,9 @@
 import "./Alarm.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLock, faLockOpen } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faLockOpen, faZ } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useEffect, useState } from "react";
 
-const Alarm = () => {
+const Alarm = (props) => {
   const close = <FontAwesomeIcon icon={faLock} className="lock" />;
   const open = <FontAwesomeIcon icon={faLockOpen} className="lock" />;
   const [condition, setCondition] = useState(false);
@@ -20,6 +20,12 @@ const Alarm = () => {
   //     }
   //   }
   // });
+
+
+  useEffect(()=>{
+    if(lock.current.classList.contains("active")){props.set(true)}
+    else{props.set(false)};
+  },[condition]);
 
   const handleToggle = (e) => {
     e.target.classList.toggle("active");

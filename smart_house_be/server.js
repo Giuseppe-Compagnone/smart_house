@@ -5,7 +5,8 @@ const { Server } = require("socket.io");
 const SerialPort = require("serialport");
 const Gpio = require("onoff").Gpio;
 
-const pin = new Gpio(21,"out");
+const myPin = new Gpio(21,"out");
+const alarmPin = new Gpio(20,"out");
 
 const app = express();
 app.use(cors());
@@ -56,6 +57,11 @@ socket.on("connection",(socket)=>{
         console.log(data);
         myPin.writeSync(data.status);
         port.write(data.write);
+    });
+
+    socket.on("alarm",(data)=>{
+        console.log(data);
+        alarmPin.writeSync(data.status? 1 : 0);
     });
 
     socket.on("disconnect",()=>{

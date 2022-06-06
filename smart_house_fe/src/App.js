@@ -10,21 +10,29 @@ function App() {
 
   const [ temp , setTemp ] = useState(0);
   const [ hum , setHum ] = useState(0);
+  const [ alarm , setAlarm ] = useState(false);
 
   useEffect(() => {
     const socket = io.connect("http://192.168.0.69:3001");
     socket.on("server",()=>{
       console.log("connected to server succesfully");
-    })
-
-    socket.on("tempHum",(data)=>{
-      let hold=data.data;
-      let tempS = hold.slice(0,2);
-      let humS =  hold.slice(2,5);
-      if(tempS != temp)setTemp(tempS);
-      if(humS != hum)setHum(humS);      
     });
-  },[]); 
+
+  socket.on("tempHum",(data)=>{
+    let hold=data.data;
+    let tempS = hold.slice(0,2);
+    let humS =  hold.slice(2,5);
+    if(tempS != temp)setTemp(tempS);
+    if(humS != hum)setHum(humS);      
+  })
+  },[]);
+
+  
+  useEffect(()=>{
+    const socket = io.connect("http://192.168.0.69:3001")
+    socket.emit("alarm",{status:alarm});
+  }
+  ,[alarm]);
 
   let rooms=[
     {
@@ -67,7 +75,7 @@ function App() {
         <Navbar />
         <Rooms />
         <Info temp={temp} hum={hum} />
-        <Alarm />
+        <Alarm set={setAlarm}/>
         <Footer />
       </div>
     </>

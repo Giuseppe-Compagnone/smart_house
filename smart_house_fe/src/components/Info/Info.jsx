@@ -7,9 +7,10 @@ const Info = (props) => {
     const temp = document.querySelector("#temp");
     const hum = document.querySelector("#hum");
 
-    const intereval = setInterval(()=>{
-        temp.style.background = rgba()
-    })
+    // const interval = setInterval(()=>{
+    //     temp.style.background = `rgba(0, 122, 204,${props.temp/100})`;
+    //     hum.style.background = `rgba(0, 122, 204,${props.hum/100})`;
+    // });
 
     return(
         <>
