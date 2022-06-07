@@ -67,10 +67,24 @@ main #house {
           justify-content: center;
 }
 
+@media only screen and (max-width: 600px) {
+  main #house {
+    width: calc( calc( 2.36221rem * 12.5) * 0.75);
+    height: calc( calc( 2.36221rem * 12.5) * 0.75);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  main #house {
+    width: calc( calc( 2.36221rem * 12.5) * 0.65);
+    height: calc( calc( 2.36221rem * 12.5) * 0.65);
+  }
+}
+
 main #house #rooms {
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "garage bedroom kitchen"  ". bathroom living"  "garden garden garden";
+      grid-template-areas: "garage bedroom kitchen"  ". bathroom living"  "garden garden garden";
   -ms-grid-columns: auto auto auto;
       grid-template-columns: auto auto auto;
   -ms-grid-rows: auto auto auto;
@@ -80,6 +94,27 @@ main #house #rooms {
   row-gap: 1.1811rem;
   width: calc( calc( 2.36221rem * 12.5) - ( 2.36221rem * 2 ));
   height: calc( calc( 2.36221rem * 12.5) - ( 2.36221rem * 2 ));
+}
+
+@media only screen and (max-width: 600px) {
+  main #house #rooms {
+    -webkit-column-gap: calc( 2.36221rem * 0.75)/2;
+            column-gap: calc( 2.36221rem * 0.75)/2;
+    row-gap: calc( 2.36221rem * 0.75)/2;
+    width: calc( calc( calc( 2.36221rem * 12.5) * 0.75) - ( calc( 2.36221rem * 0.75) * 2 ));
+    height: calc( calc( calc( 2.36221rem * 12.5) * 0.75) - ( calc( 2.36221rem * 0.75) * 2 ));
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  main #house #rooms {
+    -webkit-column-gap: calc( 2.36221rem * 0.65)/2;
+            column-gap: calc( 2.36221rem * 0.65)/2;
+    row-gap: calc( 2.36221rem * 0.65)/2;
+    width: calc( calc( calc( 2.36221rem * 12.5) * 0.65) - ( calc( 2.36221rem * 0.65) * 2 ));
+    height: calc( calc( calc( 2.36221rem * 12.5) * 0.65) - ( calc( 2.36221rem * 0.65) * 2 ));
+    font-size: .8rem;
+  }
 }
 
 main #house #rooms .room {

@@ -35,12 +35,33 @@ section ul {
       grid-template-columns: auto auto;
   -ms-grid-rows: auto auto;
       grid-template-rows: auto auto;
-      grid-template-areas: "temp hum" ". .";
+      grid-template-areas: "temp hum" ". .";
   height: calc( 2.36221rem * 5);
   width: calc( ( calc( 2.36221rem * 6) * 2 ) + 2.36221rem);
   row-gap: 2.36221rem;
   -webkit-column-gap: 2.36221rem;
           column-gap: 2.36221rem;
+}
+
+@media only screen and (max-width: 600px) {
+  section ul {
+    height: calc( calc( 2.36221rem * 0.75) * 5);
+    width: calc( ( calc( calc( 2.36221rem * 6) * 0.75) * 2 ) + calc( 2.36221rem * 0.75));
+    row-gap: calc( 2.36221rem * 0.75);
+    -webkit-column-gap: calc( 2.36221rem * 0.75);
+            column-gap: calc( 2.36221rem * 0.75);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  section ul {
+    height: calc( calc( 2.36221rem * 0.65) * 5);
+    width: calc( ( calc( calc( 2.36221rem * 6) * 0.65) * 2 ) + calc( 2.36221rem * 0.65));
+    row-gap: calc( 2.36221rem * 0.65);
+    -webkit-column-gap: calc( 2.36221rem * 0.65);
+            column-gap: calc( 2.36221rem * 0.65);
+    font-size: .8rem;
+  }
 }
 
 section ul .info-cell {

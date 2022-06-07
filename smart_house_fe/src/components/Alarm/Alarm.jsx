@@ -10,16 +10,16 @@ const Alarm = (props) => {
   let lock = useRef();
   let back = useRef();
 
-  // setInterval(() => {
-  //   if (condition) {
-  //     if(!back.current.classList.contains("activated"))
-  //     back.current.classList.add("activated");
-  //   } else {
-  //     if (back.current.classList.contains("activated")) {
-  //       back.current.classList.remove("activated");
-  //     }
-  //   }
-  // });
+
+  useEffect(()=>{
+    if(!back.current.classList.contains("activated")){
+      back.current.classList.add("activated");
+    } else {
+      if (back.current.classList.contains("activated")) {
+        back.current.classList.remove("activated");
+      }
+    }
+  },[condition]);
 
 
   useEffect(()=>{

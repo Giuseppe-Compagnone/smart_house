@@ -41,6 +41,20 @@ main{
         align-items: center;
         justify-content: center;
 
+        @media only screen and (max-width: 600px){  
+            $wall: calc( #{$wall} * 0.75 );
+
+            width: $wall;
+            height: $wall;
+        }
+
+        @media only screen and (max-width: 400px){  
+            $wall: calc( #{$wall} * 0.65 );
+
+            width: $wall;
+            height: $wall;
+        }
+
         
 
         #rooms{    
@@ -55,6 +69,27 @@ main{
             row-gap: $cm / 2;        
             width: calc( #{$wall} - ( #{$cm} * 2 ));
             height: calc( #{$wall} - ( #{$cm} * 2 ));
+
+            @media only screen and (max-width: 600px){  
+                $wall: calc( #{$wall} * 0.75 );
+                $cm: calc( #{$cm} * 0.75);
+    
+                column-gap: $cm / 2;
+                row-gap: $cm / 2;        
+                width: calc( #{$wall} - ( #{$cm} * 2 ));
+                height: calc( #{$wall} - ( #{$cm} * 2 ));
+            }
+
+            @media only screen and (max-width: 400px){  
+                $wall: calc( #{$wall} * 0.65 );
+                $cm: calc( #{$cm} * 0.65);
+    
+                column-gap: $cm / 2;
+                row-gap: $cm / 2;        
+                width: calc( #{$wall} - ( #{$cm} * 2 ));
+                height: calc( #{$wall} - ( #{$cm} * 2 ));
+                font-size: .8rem;
+            }
 
             .room{
                 display: flex;

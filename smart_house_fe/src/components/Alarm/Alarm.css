@@ -20,9 +20,6 @@
   display: flex;
   height: calc( 2.36221rem * 5);
   width: calc( ( calc( 2.36221rem * 6) * 2 ) + 2.36221rem);
-  row-gap: 2.36221rem;
-  -webkit-column-gap: 2.36221rem;
-          column-gap: 2.36221rem;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -30,6 +27,21 @@
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 10rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .alarm .alarm-options {
+    height: calc( calc( 2.36221rem * 0.75) * 5);
+    width: calc( ( calc( calc( 2.36221rem * 6) * 0.75) * 2 ) + calc( 2.36221rem * 0.75));
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .alarm .alarm-options {
+    height: calc( calc( 2.36221rem * 0.65) * 5);
+    width: calc( ( calc( calc( 2.36221rem * 6) * 0.65) * 2 ) + calc( 2.36221rem * 0.65));
+    font-size: .8rem;
+  }
 }
 
 .alarm .alarm-options #alarm-container {
@@ -46,6 +58,18 @@
           align-items: center;
   -webkit-transition: all .1s ease-in;
   transition: all .1s ease-in;
+}
+
+@media only screen and (max-width: 600px) {
+  .alarm .alarm-options #alarm-container {
+    width: calc( calc( 2.36221rem * 6) * 0.75);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .alarm .alarm-options #alarm-container {
+    width: calc( calc( 2.36221rem * 6) * 0.65);
+  }
 }
 
 .alarm .alarm-options #alarm-container .lock {
@@ -70,6 +94,20 @@
   transition: all .7s ease-in;
 }
 
+@media only screen and (max-width: 600px) {
+  .alarm .alarm-options .toggler {
+    height: calc( 2.36221rem * 0.75);
+    width: calc( calc( 2.36221rem * 0.75) * 2);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .alarm .alarm-options .toggler {
+    height: calc( 2.36221rem * 0.65);
+    width: calc( calc( 2.36221rem * 0.65) * 2);
+  }
+}
+
 .alarm .alarm-options .toggler .trigger {
   background: white;
   position: absolute;
@@ -86,9 +124,33 @@
   pointer-events: none;
 }
 
+@media only screen and (max-width: 600px) {
+  .alarm .alarm-options .toggler .trigger {
+    width: calc( 2.36221rem * 0.75);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .alarm .alarm-options .toggler .trigger {
+    width: calc( 2.36221rem * 0.65);
+  }
+}
+
 .alarm .alarm-options .toggler.active .trigger {
   left: 2.36221rem;
   -webkit-transition: all .2s ease-in;
   transition: all .2s ease-in;
+}
+
+@media only screen and (max-width: 600px) {
+  .alarm .alarm-options .toggler.active .trigger {
+    left: calc( 2.36221rem * 0.75);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .alarm .alarm-options .toggler.active .trigger {
+    left: calc( 2.36221rem * 0.65);
+  }
 }
 /*# sourceMappingURL=Alarm.css.map */
