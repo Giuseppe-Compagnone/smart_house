@@ -2,7 +2,7 @@ import "./Rooms.css";
 
 
 
-const Rooms = () =>{
+const Rooms = (props) =>{
     
 
     return(
@@ -11,7 +11,7 @@ const Rooms = () =>{
                 <h1 id="house-link">My House</h1>
                 <div id="house" className="room-style">
                     <div id="rooms">
-                        <div id="garage" className="room-style room" onClick={(e)=>{e.target.classList.toggle("active")}}>Garage</div>
+                        <div id="garage" className="room-style room" onClick={(e)=>{e.target.classList.toggle("active")}}>Garage</div> 
                         <div id="bedroom" className="room-style room" onClick={(e)=>{e.target.classList.toggle("active")}}>Bedroom</div>
                         <div id="kitchen" className="room-style room" onClick={(e)=>{e.target.classList.toggle("active")}}>Kitchen</div>
                         <div id="living" className="room-style room" onClick={(e)=>{e.target.classList.toggle("active")}}>Living</div>

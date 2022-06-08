@@ -41,10 +41,17 @@ function App() {
     }
   ];
 
+  let k = {
+    room:"kitchen",
+    pin:"3",
+    status:0
+  };
+
   const [ temp , setTemp ] = useState(0);
   const [ hum , setHum ] = useState(0);
   const [ alarm , setAlarm ] = useState(false);
   const [ rooms , setRooms ] = useState(r);
+
 
   useEffect(() => {
     const socket = io.connect("http://192.168.0.69:3001");
@@ -69,6 +76,7 @@ function App() {
   },[alarm])
 
   useEffect(()=>{
+    console.log("room")
     const socket = io.connect("http://192.168.0.69:3001");
     socket.emit("rooms",{data:rooms});
   },[rooms])
@@ -78,9 +86,14 @@ function App() {
     <>
       <div id="app" className="container">
         <Navbar />
-        <Rooms set={setRooms} />
+        <Rooms />
+        <button onClick={()=>{
+          console.log("room")
+          const socket = io.connect("http://192.168.0.69:3001");
+          socket.emit("rooms",{data:rooms});
+        }}>CIAO</button>
         <Info temp={temp} hum={hum} />
-        <Alarm  set={setAlarm}/>
+        <Alarm  set={setAlarm} />
         <Footer />
       </div>
     </>
