@@ -2,7 +2,7 @@ const http = require("http");
 const cors = require("cors");
 const express = require("express");
 const { Server } = require("socket.io");
-const SerialPort = require("serialport");
+const { SerialPort , ReadlineParser } = require("serialport");
 const Gpio = require("onoff").Gpio;
 
 const myPin = new Gpio(21,"out");
@@ -13,20 +13,27 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static((__dirname + 'public')));
 
-const server = http.createServer(app);
 
-const parser = new SerialPort.parsers.Readline({dilimiter:"\r\n"});
 
-port = new SerialPort('/dev/ttyACM0',{ 
+const port = new SerialPort({ 
+    path:'/dev/ttyACM0',
     baudRate: 9600,
-    dataBits: 8,
-    parity: 'none',
-    stopBits: 1,
-    flowControl: false
+    autoOpen: true
 });
 
 
-port.pipe(parser);
+
+
+const parser = new ReadlineParser()
+port.pipe(parser)
+
+
+
+myPin.writeSync(1);
+port.write("5");
+port.write(Buffer.from("5"));
+
+const server = http.createServer(app);
 
 app.get("/",(req,res)=>{
     res.writeHead(200);
@@ -45,23 +52,19 @@ socket.on("connection",(socket)=>{
 
     socket.emit("server",{});
 
-    socket.on("turnOn",(data)=>{
-
-        console.log(data);
-        myPin.writeSync(data.status);
-        port.write(data.write);
-    });
-
-    socket.on("turnOff",(data)=>{
-
-        console.log(data);
-        myPin.writeSync(data.status);
-        port.write(data.write);
-    });
-
     socket.on("alarm",(data)=>{
         console.log(data);
         alarmPin.writeSync(data.status? 1 : 0);
+    });
+
+    socket.on("rooms",(data)=>{
+        let rooms=data.data;
+
+        //for(let i=0;i<rooms.length;i++){
+            //let x = rooms[1];
+            myPin.writeSync(1);
+            port.write('5');            
+        //};
     });
 
     socket.on("disconnect",()=>{
@@ -76,5 +79,3 @@ parser.on("data",(data)=>{
 server.listen(3001,()=>{
     console.log("server start");
 });
-
-
