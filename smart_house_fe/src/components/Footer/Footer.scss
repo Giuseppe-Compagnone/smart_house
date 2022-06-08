@@ -6,6 +6,8 @@ footer{
     align-items: center;
     background: $footer;
     padding-top: 2rem;
+
+    
     
     #footer-content{
         width: 100%;
@@ -15,11 +17,25 @@ footer{
         padding: 0 9rem;
         margin-bottom: .5rem;
 
+        @media only screen and (max-width: 600px){
+              flex-direction: column; 
+        }; 
+
+        @media only screen and (max-width: 400px){
+            padding: 0 2rem;
+      }; 
+
         li{
             padding: 0 2rem;
             width: 50%;
             border-left:.15rem solid $light ;
             line-height: 1.5rem;
+
+            @media only screen and (max-width: 600px){
+                width: 100%;
+                margin-bottom: 3rem;
+            }
+
             p{
                 line-height: 1.5rem;
             }
@@ -35,7 +51,8 @@ footer{
             li{
                 padding: unset;
                 width: unset;
-                border-left: unset ;
+                border-left: unset;
+                margin: unset;
                 
             }
         }

@@ -26,11 +26,33 @@ footer #footer-content {
   margin-bottom: .5rem;
 }
 
+@media only screen and (max-width: 600px) {
+  footer #footer-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  footer #footer-content {
+    padding: 0 2rem;
+  }
+}
+
 footer #footer-content li {
   padding: 0 2rem;
   width: 50%;
   border-left: 0.15rem solid #007acc;
   line-height: 1.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  footer #footer-content li {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
 }
 
 footer #footer-content li p {
@@ -49,6 +71,7 @@ footer #footer-content #technologies li {
   padding: unset;
   width: unset;
   border-left: unset;
+  margin: unset;
 }
 
 footer #copyright {
