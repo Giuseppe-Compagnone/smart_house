@@ -1,0 +1,29 @@
+@import "./../../variables.scss";
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1{
+        margin-bottom: 3rem;
+    }
+
+    #error{
+        color: $error !important;
+        margin:0 0 1rem 2.6rem;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #sign-in{
+        text-align: center;
+        display: block  ;
+    }
+
+}

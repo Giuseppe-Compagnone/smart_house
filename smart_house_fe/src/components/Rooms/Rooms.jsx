@@ -3,12 +3,9 @@ import "./Rooms.css";
 
 
 const Rooms = (props) =>{
-    
-    let rooms = document.querySelectorAll(".room");
 
     const handleClick = (e) =>{
         if(!e.target.classList.contains("active")){
-            console.log("on",e.target.dataset.pin);
             e.target.classList.add("active");
             props.socket.emit("turnOn",{
                 pin : e.target.dataset.pin,
@@ -16,7 +13,6 @@ const Rooms = (props) =>{
             })
         }
         else{
-            console.log("off",e.target.dataset.pin);
             e.target.classList.remove("active");
             props.socket.emit("turnOff",{
                 pin : e.target.dataset.pin,

@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: $font;
+    user-select: none;
        
 }
 
@@ -21,6 +22,7 @@ body{
 a{
     text-decoration: none;
     color: $text;
+    cursor: pointer;
 }
 
 a:hover{
@@ -41,5 +43,35 @@ a:hover{
 .room-style{        
     border: .3rem solid $house;
     border-radius: $radius;
+}
+
+input{
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: $radius;
+    border: .2rem solid $house;
+    color:$text;
+    background: none;
+    transition: all .2s ease;
+}
+
+.input{
+    width:80%;
+}
+
+.input:focus{
+    border-color: $text;
+    background: $light;
+    outline: none;
+}
+
+input[type=submit]{
+    cursor:pointer;
+}
+
+input[type=submit]:hover{
+    border-color: $text;
+    background: $light;
+    transform: scale(1.1);
 }
 

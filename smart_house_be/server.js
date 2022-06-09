@@ -1,6 +1,5 @@
 const http = require("http");
 const SerialPort = require("serialport");
-const {pipeline} = require("serialport");
 const Gpio = require("onoff").Gpio;
 const cors = require("cors");
 const express = require("express");
