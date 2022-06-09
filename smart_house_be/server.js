@@ -1,95 +1,14 @@
-// const http = require("http");
-// const cors = require("cors");
-// const express = require("express");
-// const { Server } = require("socket.io");
-// const { SerialPort , ReadlineParser } = require("serialport");
-// const Gpio = require("onoff").Gpio;
-
-// const myPin = new Gpio(21,"out");
-// const alarmPin = new Gpio(20,"out");
-
-// const app = express();
-// app.use(cors());
-// app.use(express.json());
-// app.use(express.static((__dirname + 'public')));
-
-
-
-// const port = new SerialPort({ 
-//     path:'/dev/ttyACM0',
-//     baudRate: 9600,
-//     autoOpen: true
-// });
-
-
-
-
-// const parser = new ReadlineParser()
-// port.pipe(parser)
-
-
-
-// myPin.writeSync(1);
-// port.write("5");
-// port.write(Buffer.from("5"));
-
-// const server = http.createServer(app);
-
-// app.get("/",(req,res)=>{
-//     res.writeHead(200);
-//     res.end("Server is running");
-// })
-
-// const socket = new Server(server, {
-//     cors: {
-//       origin: "http://192.168.0.69:3000",
-//       methods: ["GET","POST"]
-//     }
-// });
-
-// socket.on("connection",(socket)=>{
-//     console.log("new connection");
-
-//     socket.emit("server",{});
-
-//     socket.on("alarm",(data)=>{
-//         console.log(data);
-//         alarmPin.writeSync(data.status? 1 : 0);
-//     });
-
-//     socket.on("rooms",(data)=>{
-//         let rooms=data.data;
-
-//         //for(let i=0;i<rooms.length;i++){
-//             //let x = rooms[1];
-//             myPin.writeSync(1);
-//             port.write('5');            
-//         //};
-//     });
-
-//     socket.on("disconnect",()=>{
-//         console.log("client disconnection");
-//     });
-// });
-
-// parser.on("data",(data)=>{
-//     socket.emit("tempHum",{data});
-// });
-
-// server.listen(3001,()=>{
-//     console.log("server start");
-// });
-
-let http = require("http");
-let SerialPort = require("serialport");
-let cors = require("cors");
-let Gpio = require("onoff").Gpio;
-let express = require("express");
+const http = require("http");
+const SerialPort = require("serialport");
+const {pipeline} = require("serialport");
+const Gpio = require("onoff").Gpio;
+const cors = require("cors");
+const express = require("express");
 
 const myPin = new Gpio(21,"out");
 const alarmPin = new Gpio(20,"out");
 
-let app = express();
+const app = express();
 
 app.use(express.static((__dirname + 'public')));
 app.use(cors());
@@ -102,8 +21,7 @@ app.use(express.json());
 
 
 
-
-const parser = new SerialPort.parsers.Readline({dilimiter:"\r\n"});
+const parser = new SerialPort.parsers.Readline({delimiter:"\r\n"});
 
 port = new SerialPort('/dev/ttyACM0',{ 
     baudRate: 9600,
@@ -119,65 +37,51 @@ port.pipe(parser);
 
 
 
-const server = http.createServer(app);
+let server = http.createServer(app);
 
 app.get("/",(req,res)=>{
-    res.writeHead(200);
+    res.writeHead(200,{"Content-Type":"text/html"});
     res.end("Server is running");
-})
+});
 
 const { Server } = require("socket.io");
 let io = new Server(server,{
-        cors: {
-          origin: "http://192.168.0.69:3000",
-          methods: ["GET","POST"]
-        }
-    });
-    
-    
-    
-    
-    io.on("connection",(socket)=>{
+            cors: {
+              origin: "http://192.168.0.69:3000",
+              methods: ["GET","POST"]
+            }
+        });
+
+
+io.on("connection",(socket)=>{
 
     console.log("new connection");
 
     socket.emit("server",{});
-    
+
     socket.on("turnOn",(data)=>{
-            
-            console.log(data);
-        myPin.writeSync(data.status);
-        port.write(data.write);
+
+        console.log(data);
+        myPin.writeSync(1);
+        port.write(data.pin);
     });
 
     socket.on("turnOff",(data)=>{
 
         console.log(data);
-        myPin.writeSync(data.status);
-        port.write(data.write);
-
-    
+        myPin.writeSync(0);
+        port.write(data.pin);
     });
 
-
-    socket.on("alarm",(data)=>{
+        socket.on("alarm",(data)=>{
         console.log(data);
         alarmPin.writeSync(data.status? 1 : 0);
-    });
-
-    socket.on("rooms",(data)=>{
-        let rooms=data.data;
-        console.log("yep");
-        for(let i=0;i<rooms.length;i++){
-            let x = rooms[i];
-            myPin.writeSync(x.status);
-            port.write(x.pin);            
-        };
     });
 
     socket.on("disconnect",()=>{
         console.log("client disconnection");
     });
+
 
 
 })
@@ -186,6 +90,6 @@ parser.on("data",(data)=>{
     io.emit("tempHum",{data});
 })
 
-server.listen(3001,()=>{
-    console.log("server start");
-});
+
+
+server.listen(3001);

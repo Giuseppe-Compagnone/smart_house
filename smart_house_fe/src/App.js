@@ -8,39 +8,6 @@ import io from "socket.io-client";
 
 function App() {
 
-  let r=[
-    {
-        room:"kitchen",
-        pin:"3",
-        status:1,
-    },
-    {
-        room:"bedroom",
-        pin:"4",
-        status:1,
-    },
-    {
-        room:"living",
-        pin:"5",
-        status:0,
-    },
-    {
-        room:"bathroom",
-        pin:"6",
-        status:0,
-    },
-    {
-        room:"garage",
-        pin:"7",
-        status:0,
-    },
-    {
-        room:"garden",
-        pin:"8",
-        status:0,
-    }
-  ];
-
   let k = {
     room:"kitchen",
     pin:"3",
@@ -50,11 +17,12 @@ function App() {
   const [ temp , setTemp ] = useState(0);
   const [ hum , setHum ] = useState(0);
   const [ alarm , setAlarm ] = useState(false);
-  const [ rooms , setRooms ] = useState(r);
+  const [ ws , setWs ] = useState({});
 
 
   useEffect(() => {
     const socket = io.connect("http://192.168.0.69:3001");
+    setWs( socket);
     socket.on("server",()=>{
       console.log("connected to server succesfully");
     });
@@ -73,25 +41,14 @@ function App() {
   useEffect(()=>{
     const socket = io.connect("http://192.168.0.69:3001");
     socket.emit("alarm",{status:alarm})
-  },[alarm])
+  },[alarm]);
 
-  useEffect(()=>{
-    console.log("room")
-    const socket = io.connect("http://192.168.0.69:3001");
-    socket.emit("rooms",{data:rooms});
-  },[rooms])
-  
 
   return (
     <>
       <div id="app" className="container">
         <Navbar />
-        <Rooms />
-        <button onClick={()=>{
-          console.log("room")
-          const socket = io.connect("http://192.168.0.69:3001");
-          socket.emit("rooms",{data:rooms});
-        }}>CIAO</button>
+        <Rooms socket={ws}/>
         <Info temp={temp} hum={hum} />
         <Alarm  set={setAlarm} />
         <Footer />
