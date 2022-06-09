@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAEA,AAAA,OAAO,CAAA;EACH,OAAO,EAAE,KAAK;EACd,UAAU,EAAE,MAAM;CACrB",
     "sources": [
-        "SignIn.scss"
+        "SignIn.scss",
+        "../../variables.scss"
     ],
     "names": [],
     "file": "SignIn.css"
