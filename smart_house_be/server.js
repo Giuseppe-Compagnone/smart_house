@@ -2,6 +2,8 @@ const http = require("http");
 const SerialPort = require("serialport");
 const Gpio = require("onoff").Gpio;
 const cors = require("cors");
+const crypto = require("crypto");
+const mysql = require("mysql");
 const express = require("express");
 
 const myPin = new Gpio(21,"out");
@@ -13,8 +15,31 @@ app.use(express.static((__dirname + 'public')));
 app.use(cors());
 app.use(express.json());
 
+const db = mysql.createConnection({
+    user: "root",
+    host: "192.168.0.69",
+    port: 3306,
+    password: "admin",
+    database: "users"
+})
+
+db.connect((err) => {
+    if (err) console.log("error",err) ;
+    console.log("Connected!");
+  });
 
 
+db.query("INSERT INTO users(nome,psw) VALUES(?,?)",["pippo","test"],(err,res)=>{
+    if(err){
+        console.log("connection failed: ",err);
+    }
+    else{
+        console.log("evvai");
+    }
+})
+
+
+//let hash = crypto.createHash('md5').update('some_string').digest("hex")
 
 
 

@@ -10,7 +10,7 @@ import SignIn from "./components/SignIn/SignIn";
 
 function App() {
 
-  const [ isLogged , setIsLogged ] = useState(false);
+  const [ isLogged , setIsLogged ] = useState(true);
   const [ account , setAccount ] = useState(true);
 
 
