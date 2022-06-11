@@ -12,6 +12,7 @@ function App() {
 
   const [ isLogged , setIsLogged ] = useState(false);
   const [ account , setAccount ] = useState(true);
+  const [ justSign , setJustSign] = useState(false);
 
 
   const [ temp , setTemp ] = useState(0);
@@ -60,11 +61,11 @@ function App() {
 
       account ?
       
-      <Login socket={ws} set={setAccount} setLog={setIsLogged} /> 
+      <Login socket={ws} set={setAccount} setLog={setIsLogged} just={justSign} /> 
       
       :
 
-      <SignIn socket={ws} set={setAccount} />
+      <SignIn socket={ws} set={setAccount} setJust={setJustSign}/>
       
     }
     </>

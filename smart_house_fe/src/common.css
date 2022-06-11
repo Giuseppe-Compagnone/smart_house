@@ -85,6 +85,15 @@ label {
 
 .error {
   color: #d50000 !important;
-  margin: 0 0 1rem 2.6rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+}
+
+.mess {
+  width: 80%;
+  height: 5rem;
+  margin: 0 auto;
+  position: relative;
 }
 /*# sourceMappingURL=common.css.map */

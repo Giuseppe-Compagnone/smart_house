@@ -10,11 +10,7 @@ body {
           align-items: center;
 }
 
-body h1 {
-  margin-bottom: 3rem;
-}
-
-body form {
+body .form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,5 +29,12 @@ body form {
 body #sign-in {
   text-align: center;
   display: block;
+}
+
+body #just {
+  color: #007acc !important;
+  position: absolute;
+  top: 1rem;
+  left: 0;
 }
 /*# sourceMappingURL=Login.css.map */

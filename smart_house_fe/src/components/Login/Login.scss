@@ -5,11 +5,8 @@ body{
     justify-content: center;
     align-items: center;
 
-    h1{
-        margin-bottom: 3rem;
-    }
 
-    form{
+    .form{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -19,6 +16,13 @@ body{
     #sign-in{
         text-align: center;
         display: block  ;
+    }
+
+    #just{
+        color: $light !important;
+        position: absolute;
+        top: 1rem;
+        left: 0;
     }
 
 }

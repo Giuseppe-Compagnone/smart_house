@@ -88,14 +88,15 @@ app.post("/log",(req,res)=>{
     console.log("endpoint")
     const email = req.body.email;
     const psw = req.body.psw;
-    const hash = crypto.createHash("md5").update(psw).digest(hex);
+    const hash = crypto.createHash("md5").update(psw).digest("hex");
 
     db.query("SELECT * FROM users WHERE email = ? AND psw = ?;",[email,hash],(err,response)=>{
         if(err){
             console.log(err);
             return;
         }
-        if(response){
+        console.log(response);
+        if(response.length>0){
             console.log("log")
             res.send("");
         }
