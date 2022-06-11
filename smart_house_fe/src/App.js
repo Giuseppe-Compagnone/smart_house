@@ -10,7 +10,7 @@ import SignIn from "./components/SignIn/SignIn";
 
 function App() {
 
-  const [ isLogged , setIsLogged ] = useState(true);
+  const [ isLogged , setIsLogged ] = useState(false);
   const [ account , setAccount ] = useState(true);
 
 
@@ -60,11 +60,11 @@ function App() {
 
       account ?
       
-      <Login set={setAccount} /> 
+      <Login socket={ws} set={setAccount} setLog={setIsLogged} /> 
       
       :
 
-      <SignIn set={setAccount} />
+      <SignIn socket={ws} set={setAccount} />
       
     }
     </>
