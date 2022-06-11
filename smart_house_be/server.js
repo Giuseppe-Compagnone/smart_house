@@ -16,33 +16,18 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-    user: "root",
+    connectionLimit: 10,
+    user: "remote",
     host: "192.168.0.69",
     port: 3306,
     password: "admin",
-    database: "users"
+    database: "smart_house"
 })
 
 db.connect((err) => {
     if (err) console.log("error",err) ;
     console.log("Connected!");
   });
-
-
-db.query("INSERT INTO users(nome,psw) VALUES(?,?)",["pippo","test"],(err,res)=>{
-    if(err){
-        console.log("connection failed: ",err);
-    }
-    else{
-        console.log("evvai");
-    }
-})
-
-
-//let hash = crypto.createHash('md5').update('some_string').digest("hex")
-
-
-
 
 
 const parser = new SerialPort.parsers.Readline({delimiter:"\r\n"});
@@ -67,6 +52,60 @@ app.get("/",(req,res)=>{
     res.writeHead(200,{"Content-Type":"text/html"});
     res.end("Server is running");
 });
+
+app.post("/check-email",(req,res)=>{
+    const email = req.body.email;
+
+    
+    db.query("SELECT email FROM users WHERE email = ?;",[email],(err,response)=>{
+        if(err) return
+        if(response.length===0){
+            res.send("check");
+        }
+        else{
+            res.send("exist");
+        }
+    })
+});
+
+app.post("/create-user",(req,res)=>{
+    const email = req.body.email;
+    const psw = req.body.psw;
+
+    const hash = crypto.createHash('md5').update(psw).digest("hex");
+
+            db.query("INSERT INTO users(email,psw) VALUES(?,?);",[email,hash],(err,response)=>{
+                if(err){
+                    console.log(err)
+                    return;
+                }               
+            })
+
+            res.send("success");
+});
+
+app.post("/log",(req,res)=>{
+    console.log("endpoint")
+    const email = req.body.email;
+    const psw = req.body.psw;
+    const hash = crypto.createHash("md5").update(psw).digest(hex);
+
+    db.query("SELECT * FROM users WHERE email = ? AND psw = ?;",[email,hash],(err,response)=>{
+        if(err){
+            console.log(err);
+            return;
+        }
+        if(response){
+            console.log("log")
+            res.send("");
+        }
+        else{
+            console.log("wrong");
+            res.send("Wrong username or password");
+        }
+    })
+});
+
 
 const { Server } = require("socket.io");
 let io = new Server(server,{
