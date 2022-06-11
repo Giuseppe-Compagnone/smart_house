@@ -50,7 +50,36 @@ main {
 }
 
 main #house-link {
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
+}
+
+main h4 {
+  background: #007acc;
+  border-radius: 0.8rem;
+  padding: .6rem;
+  margin-bottom: 3rem;
+  font-weight: normal;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  main h4 {
+    font-size: .8rem;
+    padding: .4rem;
+  }
+  main h4 #user-icon {
+    font-size: 1rem !important;
+  }
+}
+
+main h4 #user-icon {
+  font-size: 1.3rem;
+  margin-right: .5rem;
 }
 
 main #house {

@@ -5,6 +5,41 @@ body{
     justify-content: center;
     align-items: center;
 
+    @media only screen and (max-width:600px) {
+        min-height:120vh !important;
+
+        h1{
+            display: block;
+            text-align: center;
+            font-size: 1.5rem !important; 
+        }
+
+        .mess{
+            font-size: .8rem;
+        }
+
+        .form{
+
+            label{
+                font-size: 0.9rem !important;
+            }
+
+            input{
+                padding: .7rem;
+            }
+
+        }
+
+            #sign-in{
+                font-size: 0.8rem ;
+            }
+        
+    }
+
+    @media only screen and (max-width:400px){
+        min-height: 100vh !important;
+    }
+
 
     .form{
         display: flex;

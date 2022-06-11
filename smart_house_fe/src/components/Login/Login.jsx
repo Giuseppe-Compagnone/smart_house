@@ -10,17 +10,18 @@ const Login = (props) =>{
     const handleError = (res) => {
         console.log("success");
         if(res){
-            if(res.data.length>0){
-                setError(res.data);
+            
+            if(res.data==="error"){
+                setError("Wrong username or password");
             }
             else{
+                props.setCurrent(res.data);
                 props.setLog(true);
             }
         }
     }
 
     const handleSubmit = () =>{
-        console.log("let's go");
         Axios.post("http://192.168.0.69:3001/log",user).then((res)=>{handleError(res)});
     }
 

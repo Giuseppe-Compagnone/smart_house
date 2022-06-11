@@ -10,6 +10,35 @@ body {
           align-items: center;
 }
 
+@media only screen and (max-width: 600px) {
+  body {
+    min-height: 120vh !important;
+  }
+  body h1 {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem !important;
+  }
+  body .mess {
+    font-size: .8rem;
+  }
+  body .form label {
+    font-size: 0.9rem !important;
+  }
+  body .form input {
+    padding: .7rem;
+  }
+  body #sign-in {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    min-height: 100vh !important;
+  }
+}
+
 body .form {
   display: -webkit-box;
   display: -ms-flexbox;

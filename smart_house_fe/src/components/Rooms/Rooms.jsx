@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import "./Rooms.css";
 
 
@@ -25,6 +27,7 @@ const Rooms = (props) =>{
         <>
             <main>
                 <h1 id="house-link">My House</h1>
+                <h4><FontAwesomeIcon id="user-icon" icon={faUser}/>{props.user}</h4>
                 <div id="house" className="room-style">
                     <div id="rooms">
                         <div id="garage" className="room-style room" data-pin="7" onClick={(e)=>{handleClick(e)}}>Garage</div> 

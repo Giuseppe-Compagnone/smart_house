@@ -58,6 +58,10 @@ nav #menu ul li #close {
   width: 0;
 }
 
+nav #menu ul #logout a:hover {
+  color: #d50000 !important;
+}
+
 nav #menu ul #icon {
   margin: 0;
 }

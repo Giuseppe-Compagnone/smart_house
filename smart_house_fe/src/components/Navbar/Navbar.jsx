@@ -16,7 +16,7 @@ const handleClose = () => {
     }
 }
 
-const Navbar = () => {
+const Navbar = (props) => {
     return(
         <nav>
             <h1 id="title" className="gradient-text">Smart House</h1>
@@ -29,6 +29,8 @@ const Navbar = () => {
                     <li><a href="#info-link">INFO</a></li>
                     <span></span>
                     <li><a href="#alarm-link">ALARM</a></li>
+                    <span></span>
+                    <li id="logout"><a href="#" onClick={()=>{props.setLog(false)}}>LOGOUT</a></li>
                     <span></span>
                 </ul>
                 <span></span>

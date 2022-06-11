@@ -31,7 +31,33 @@ main{
     align-items: center;
 
     #house-link{
-        margin-bottom: 6rem;
+        margin-bottom: 3rem;
+    }
+
+    h4{
+        background: $light;
+        border-radius: $radius;
+        padding: .6rem;
+
+        margin-bottom: 3rem;
+        font-weight: normal;
+
+        display: flex;
+        align-items: center;
+
+        @media only screen and (max-width:600px) {
+            font-size: .8rem;
+            padding: .4rem;
+
+            #user-icon{
+                font-size: 1rem !important;
+            }
+        }
+        
+        #user-icon{
+            font-size: 1.3rem;
+            margin-right: .5rem;
+        }
     }
 
     #house{

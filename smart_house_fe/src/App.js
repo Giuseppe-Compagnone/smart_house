@@ -12,7 +12,8 @@ function App() {
 
   const [ isLogged , setIsLogged ] = useState(false);
   const [ account , setAccount ] = useState(true);
-  const [ justSign , setJustSign] = useState(false);
+  const [ justSign , setJustSign ] = useState(false);
+  const [ currentUser , setCurrentUser ] = useState("admin");
 
 
   const [ temp , setTemp ] = useState(0);
@@ -50,8 +51,8 @@ function App() {
       { isLogged ?
       
       <div id="app" className="container">
-        <Navbar />
-        <Rooms socket={ws}/>
+        <Navbar setLog={setIsLogged} />
+        <Rooms socket={ws} user={currentUser}/>
         <Info temp={temp} hum={hum} />
         <Alarm  set={setAlarm} />
         <Footer />
@@ -61,7 +62,7 @@ function App() {
 
       account ?
       
-      <Login socket={ws} set={setAccount} setLog={setIsLogged} just={justSign} /> 
+      <Login socket={ws} set={setAccount} setLog={setIsLogged} just={justSign} setCurrent={setCurrentUser}/> 
       
       :
 

@@ -90,19 +90,23 @@ app.post("/log",(req,res)=>{
     const psw = req.body.psw;
     const hash = crypto.createHash("md5").update(psw).digest("hex");
 
-    db.query("SELECT * FROM users WHERE email = ? AND psw = ?;",[email,hash],(err,response)=>{
+    db.query("SELECT email FROM users WHERE email = ? AND psw = ?;",[email,hash],(err,response)=>{
         if(err){
             console.log(err);
             return;
         }
-        console.log(response);
         if(response.length>0){
-            console.log("log")
-            res.send("");
+            
+            let mail = "";
+
+            for(let i = 0;i<email.length;i++){
+                if(email[i]==="@")break;
+                mail+=email[i];
+            }
+            res.send(mail);          
         }
         else{
-            console.log("wrong");
-            res.send("Wrong username or password");
+            res.send("error");
         }
     })
 });
