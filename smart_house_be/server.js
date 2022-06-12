@@ -159,7 +159,6 @@ app.post("/alarm",(req,res)=>{
         }
 
 
-        console.log(result)
         res.send({data : result});
      })
  });
@@ -181,7 +180,6 @@ const interval = setInterval(()=>{
             }
         });
 
-        console.log("inserted");
         isInserted=true;
     }
     if(listPin.readSync()===0 && isInserted===true){
