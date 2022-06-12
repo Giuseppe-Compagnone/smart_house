@@ -24,11 +24,11 @@ const Navbar = (props) => {
             <div id="menu">
                 <ul id="list" className="hidden">
                     <li id="icon"><FontAwesomeIcon icon={faXmark} id="close" onClick={()=>handleClose()} /></li>
-                    <li><a href="#house-link">ROOMS</a></li>
+                    <li><a href="#house-link" onClick={()=>handleClose()}>ROOMS</a></li>
                     <span></span>
-                    <li><a href="#info-link">INFO</a></li>
+                    <li><a href="#info-link" onClick={()=>handleClose()}>INFO</a></li>
                     <span></span>
-                    <li><a href="#alarm-link">ALARM</a></li>
+                    <li><a href="#alarm-link" onClick={()=>handleClose()}>ALARM</a></li>
                     <span></span>
                     <li id="logout"><a href="#" onClick={()=>{props.setLog(false)}}>LOGOUT</a></li>
                     <span></span>

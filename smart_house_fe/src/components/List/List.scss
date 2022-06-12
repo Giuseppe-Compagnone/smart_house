@@ -1,0 +1,40 @@
+@import "./../../variables.scss";
+
+#alarm-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin:0 0 8rem 0;
+    
+    ul{
+        border: .3rem solid $house;
+        border-radius: $radius;
+
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        height: calc( #{$cm} * 5 );
+        row-gap: unset;
+
+        li{
+            height: $cm;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            span{
+                height: calc( #{$cm} / 2 );
+                width: .2rem;
+                background: $text;
+                border-radius: $radius;
+            }
+
+            p{
+                width:40%;
+                text-align: center;
+            }
+        }
+    }
+}

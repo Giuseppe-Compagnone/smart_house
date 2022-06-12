@@ -8,6 +8,9 @@ const express = require("express");
 
 const myPin = new Gpio(21,"out");
 const alarmPin = new Gpio(20,"out");
+const listPin = new Gpio(26,"in");
+
+let isInserted = false;
 
 const app = express();
 
@@ -42,9 +45,6 @@ port = new SerialPort('/dev/ttyACM0',{
 
 
 port.pipe(parser);
-
-
-
 
 let server = http.createServer(app);
 
@@ -85,7 +85,6 @@ app.post("/create-user",(req,res)=>{
 });
 
 app.post("/log",(req,res)=>{
-    console.log("endpoint")
     const email = req.body.email;
     const psw = req.body.psw;
     const hash = crypto.createHash("md5").update(psw).digest("hex");
@@ -110,6 +109,85 @@ app.post("/log",(req,res)=>{
         }
     })
 });
+
+app.post("/alarm",(req,res)=>{
+    db.query("SELECT * FROM alarm ORDER BY ID_alarm DESC LIMIT 3",(err,response)=>{
+        if(err){
+            console.log(err);
+            return;
+        }
+
+        let result = [];
+        
+        for(let i=0;i<response.length;i++){
+
+            let day = String(response[i].day).slice(4,15);
+
+            let hh = "00";
+            let mm = "00";
+            let ss = "00";
+            
+            if(String(response[i].hh).length===1){
+                hh = "0"+response[i].hh;
+            }
+            else{
+                hh = response[i].hh;
+            }
+
+            if(String(response[i].mm).length===1){
+                mm = "0"+response[i].mm;
+            }
+            else{
+                mm = response[i].mm;
+            }
+
+            if(String(response[i].ss).length===1){
+                ss = "0"+response[i].ss;
+            }
+            else{
+                ss = response[i].ss;
+            }
+
+            let record = {
+                day,
+                hh,
+                mm,
+                ss
+            }
+
+            result.push(record);
+        }
+
+
+        console.log(result)
+        res.send({data : result});
+     })
+ });
+
+
+const interval = setInterval(()=>{
+    if(listPin.readSync()===1 && isInserted===false){
+        const date = new Date();
+
+        const now = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+        const hh = date.getHours();
+        const mm = date.getMinutes();
+        const ss = date.getSeconds();
+
+        db.query("INSERT INTO alarm(day,hh,mm,ss) VALUES(?,?,?,?)",[now,hh,mm,ss],(err,res)=>{
+            if(err){
+                console.log(err);
+                return;
+            }
+        });
+
+        console.log("inserted");
+        isInserted=true;
+    }
+    if(listPin.readSync()===0 && isInserted===true){
+        isInserted=false;
+    }
+},200);
 
 
 const { Server } = require("socket.io");
@@ -144,6 +222,9 @@ io.on("connection",(socket)=>{
         socket.on("alarm",(data)=>{
         console.log(data);
         alarmPin.writeSync(data.status? 1 : 0);
+        if(!data.status){
+            isInserted = false;
+        }
     });
 
     socket.on("disconnect",()=>{

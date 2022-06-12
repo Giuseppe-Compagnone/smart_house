@@ -4,13 +4,14 @@ import Info from "./components/Info/Info";
 import Navbar from "./components/Navbar/Navbar";
 import Rooms from "./components/Rooms/Rooms";
 import Login from "./components/Login/Login";
+import SignIn from "./components/SignIn/SignIn";
+import List from "./components/List/List";
 import { useEffect,useState } from "react";
 import io from "socket.io-client";
-import SignIn from "./components/SignIn/SignIn";
 
 function App() {
 
-  const [ isLogged , setIsLogged ] = useState(false);
+  const [ isLogged , setIsLogged ] = useState(true);
   const [ account , setAccount ] = useState(true);
   const [ justSign , setJustSign ] = useState(false);
   const [ currentUser , setCurrentUser ] = useState("admin");
@@ -55,6 +56,7 @@ function App() {
         <Rooms socket={ws} user={currentUser}/>
         <Info temp={temp} hum={hum} />
         <Alarm  set={setAlarm} />
+        <List alarm={alarm} />
         <Footer />
       </div>
 

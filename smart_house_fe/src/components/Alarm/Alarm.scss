@@ -15,7 +15,7 @@
         width: calc( ( #{$cell} * 2 ) + #{$cm} );
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 10rem;
+        margin-bottom: 2rem;
 
         @media only screen and (max-width: 600px){  
             $wall: calc( #{$wall} * 0.75 );
