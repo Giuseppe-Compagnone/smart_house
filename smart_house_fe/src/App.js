@@ -11,7 +11,7 @@ import io from "socket.io-client";
 
 function App() {
 
-  const [ isLogged , setIsLogged ] = useState(true);
+  const [ isLogged , setIsLogged ] = useState(false);
   const [ account , setAccount ] = useState(true);
   const [ justSign , setJustSign ] = useState(false);
   const [ currentUser , setCurrentUser ] = useState("admin");
