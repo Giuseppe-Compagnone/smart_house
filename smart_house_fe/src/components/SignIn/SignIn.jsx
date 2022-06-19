@@ -9,7 +9,7 @@ const SignIn = (props) => {
   const handleEmailCheck = (res) => {
     if (res) {
       if (res.data === "check") {
-        Axios.post("http://192.168.0.69:3001/create-user", sign).then(() => {
+        Axios.post(`http://${props.ip}:3001/create-user`, sign).then(() => {
           console.log("success");
         });
         props.setJust(true);

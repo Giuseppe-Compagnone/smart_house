@@ -14,6 +14,7 @@ const Login = (props) => {
       } else {
         props.setCurrent(res.data);
         props.setLog(true);
+        props.setJust(false);
       }
     }
   };

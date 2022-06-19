@@ -100,6 +100,7 @@ function App() {
             set={setAccount}
             setLog={setIsLogged}
             just={justSign}
+            setJust={setJustSign}
             setCurrent={setCurrentUser}
           />
         ) : (
